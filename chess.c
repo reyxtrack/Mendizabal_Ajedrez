@@ -64,7 +64,7 @@ char** superImpose(char** f1, char** f2){
       imagen[i][j]=f2[i][j];
     imagen[i][j]=0;
     for(k=0;k<columnas;k++){
-      if(f1[i][k]!=zero[])
+      if(f1[i][k]!=zero[0])
         imagen[i][k]=f1[i][k];
     }
     imagen[i][j]=0;
@@ -157,21 +157,21 @@ char** rotateL(char**a){
   int columnas = numColumnas(a);
   
   int i,j,k;
-  char** rotar=(char**)malloc(sizeof(char*)*(columnas));
+  char** imagen=(char**)malloc(sizeof(char*)*(columnas));
   
   for(i=0;i<columnas;i++){
-    rotar[i]=(char*)malloc(sizeof(char)*(filas));
+    imagen[i]=(char*)malloc(sizeof(char)*(filas));
   }
   k=0;
   for(i=columnas-1;i>=0;i--){
     for(j=0;j<filas;j++){
-      rotar[k][j] = a[j][i];
+      imagen[k][j] = a[j][i];
     }
-    rotar[k][j]=0;
+    imagen[k][j]=0;
          k++; 
   }
-  rotar[columnas]=0;
-  return rotar;
+  imagen[columnas]=0;
+  return imagen;
 }
 
 char** repeatH(char** a,int n){
@@ -206,20 +206,20 @@ char** up(char**a,char**b){
   int n=numFilas(b);
   int i,j,k;
   int cont=0;
-  char** upp=(char**)malloc(sizeof(char*)*(filas));
+  char** imagen=(char**)malloc(sizeof(char*)*(filas));
   for(i=0;i<filas;i++){
-    upp[i]=(char*)malloc(sizeof(char)*(columnas));
+    imagen[i]=(char*)malloc(sizeof(char)*(columnas));
   }
 
   for(j=0;j<m;j++){
-    strcpy(upp[j],a[j]);
+    strcpy(imagen[j],a[j]);
     cont++;
     for(k=0;k<n;k++){
-    strcpy(upp[cont+k],b[k]);
+    strcpy(imagen[cont+k],b[k]);
     }
   }
   upp[filas]=0;
-  return upp;
+  return imagen;
 
 
 
